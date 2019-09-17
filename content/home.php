@@ -1,4 +1,3 @@
-
 <?php
 if(isset($_SESSION['id'])){
   echo 'Logado como ' . $_SESSION['email'] . "<br>";
@@ -13,5 +12,3 @@ else{
   echo '<a href="/auth/google-login">Google Login</a>';
   echo '</p>';
 }
-  // var_dump($_SESSION);
-?>
