@@ -13,7 +13,6 @@
         $request_uri = $url_components['path'];
       }
 
-
       $a = Request :: params_array($route);
       $b = Request :: params_array($request_uri);
       if(sizeof($a)==sizeof($b)){
