@@ -33,7 +33,11 @@ $app -> setRoute("/user/:id", function($req, $res){
     $req_uri = $req->get_request_uri();
     $params = Request :: get_query_params($req_uri);
 
-    $title = $params['title'];
+    if(isset($params['title'])){
+      $title = $params['title'];
+    }else{
+      $title = "Get User Params";
+    }
 
     if(isset($params['file_name'])){
       $file_name = $params['file_name'];
