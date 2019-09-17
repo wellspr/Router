@@ -3,7 +3,7 @@
 // require '../vendor/autoload.php';
 
 $client = new Google_Client();
-$client->setAuthConfig('credentials/credentials.json');
+$client->setAuthConfig('../credentials/credentials.json');
 $client->addScope('profile openid email');
 
 // Your redirect URI can be any registered URI, but in this example
