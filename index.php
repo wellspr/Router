@@ -1,9 +1,5 @@
 <?php
 
-session_start();
-
-require __DIR__ . '/vendor/autoload.php';
-
 require "autoload.php";
 
 $app = new Route();
@@ -21,14 +17,7 @@ $app -> setRoute("/user/:id", function($req, $res){
 
   $id = $req -> params('id');
 
-  if($id==''){
-    $res -> render("views", [
-      'title' => 'User',
-      'contentDirectory' => "user",
-      'contentFileName' => "user"
-    ]);
-  }
-  else if($id=='get_params'){
+  if($id=='get_params'){
 
     $req_uri = $req->get_request_uri();
     $params = Request :: get_query_params($req_uri);
@@ -57,39 +46,5 @@ $app -> setRoute("/user/:id", function($req, $res){
       'contentFileName' => "$file_name"
     ]);
 
-  }
-});
-
-$app -> setRoute("/auth/:id", function($req, $res){
-
-  $id = $req -> params('id');
-
-  if($id==''){
-    $res -> render("views", [
-      'title' => 'Auth',
-      'contentDirectory' => "auth",
-      'contentFileName' => "auth"
-    ]);
-  }
-  else if($id=='logout'){
-    $res -> render("views", [
-      'title' => 'Log out',
-      'contentDirectory' => "auth",
-      'contentFileName' => "logout"
-    ]);
-  }
-  else if($id=='google-login'){
-    $res -> render("views", [
-      'title' => 'Google Login',
-      'contentDirectory' => "auth",
-      'contentFileName' => "google-login"
-    ]);
-  }
-  else if($id=='google-login-via-js'){
-    $res -> render("views", [
-      'title' => 'Google Login vis js',
-      'contentDirectory' => "auth",
-      'contentFileName' => "google-login-via-js"
-    ]);
   }
 });
